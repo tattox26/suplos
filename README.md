@@ -13,4 +13,4 @@
 1. Usuario: tattox26@hotmail.com
 2. Clave: 12345678
 
-NOTA:  Se crear usuarios para la prueba se puede ver en la BD estos van ayudar para que sean asignamos con su correo a las tareas
+NOTA:  con la creacion de usuarios para la prueba, se puede ver en la BD estos van ayudar para que sean asignamos con su correo a las tareas
