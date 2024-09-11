@@ -18,9 +18,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['auth:web,api']], function () {
+    Route::get('/task', [App\Http\Controllers\TaskController::class, 'index'])->name('task');
+    Route::post('/tasks', [App\Http\Controllers\TaskController::class, 'store'])->name('store');;
+    Route::put('/tasks/{id}', [App\Http\Controllers\TaskController::class, 'update'])->name('update');
+    Route::delete('/tasks/{id}', [App\Http\Controllers\TaskController::class, 'destroy'])->name('destroy');
+    Route::get('/edit/{task}', [App\Http\Controllers\TaskController::class, 'edit'])->name('task.edit');;
+});

@@ -77,7 +77,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
         _this.newTask.description = '';
         _this.newTask.user = '';
       })["catch"](function (error) {
-        console.error('Error adding taskqqq:', error);
+        console.error('Error adding task:', error);
       });
     },
     completeTask: function completeTask(taskId) {
@@ -94,40 +94,6 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
     }
   }),
   mounted: function mounted() {}
-});
-
-/***/ }),
-
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _components_TaskList_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/TaskList.vue */ "./resources/js/components/TaskList.vue");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-
-
-
-
-
-vue__WEBPACK_IMPORTED_MODULE_2__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_3__["default"]);
-// Configuración global de Axios
-axios__WEBPACK_IMPORTED_MODULE_4__["default"].defaults.baseURL = 'http://127.0.0.1:8000'; // Cambia esto a tu URL base si es necesario
-axios__WEBPACK_IMPORTED_MODULE_4__["default"].defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-axios__WEBPACK_IMPORTED_MODULE_4__["default"].defaults.withCredentials = true;
-var app = new vue__WEBPACK_IMPORTED_MODULE_2__["default"]({
-  el: '#app',
-  store: _store__WEBPACK_IMPORTED_MODULE_1__["default"],
-  // Agrega el store a la instancia de Vue
-  components: {
-    TaskList: _components_TaskList_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
 });
 
 /***/ }),
@@ -179,7 +145,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1_
       axios__WEBPACK_IMPORTED_MODULE_2__["default"].post('/tasks', task).then(function (response) {
         commit('ADD_TASK', response.data);
       })["catch"](function (error) {
-        console.error("Error adding taskssss:", task);
+        console.error("Error adding task:csdasdsa", task);
       });
     },
     updateTask: function updateTask(_ref2, task) {
@@ -205,6 +171,46 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1_
     }
   }
 }));
+
+/***/ }),
+
+/***/ "./resources/js/task.js":
+/*!******************************!*\
+  !*** ./resources/js/task.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _components_TaskList_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/TaskList.vue */ "./resources/js/components/TaskList.vue");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+
+
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_2__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_3__["default"]);
+// Configuración global de Axios
+axios__WEBPACK_IMPORTED_MODULE_4__["default"].defaults.baseURL = 'http://127.0.0.1:8000'; // Cambia esto a tu URL base si es necesario
+axios__WEBPACK_IMPORTED_MODULE_4__["default"].defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+var config = {
+  headers: {
+    "Content-Type": "application/json",
+    "cache-control": "no-cache"
+  }
+};
+axios__WEBPACK_IMPORTED_MODULE_4__["default"].defaults.config = config;
+var app = new vue__WEBPACK_IMPORTED_MODULE_2__["default"]({
+  el: '#app',
+  store: _store__WEBPACK_IMPORTED_MODULE_1__["default"],
+  // Agrega el store a la instancia de Vue
+  components: {
+    TaskList: _components_TaskList_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
 
 /***/ }),
 
@@ -2657,7 +2663,7 @@ var render = function () {
               },
             ],
             staticClass: "form-control",
-            attrs: { value: "1", placeholder: "Task Title", required: "" },
+            attrs: { value: "1", placeholder: "Task Title1", required: "" },
             domProps: { value: _vm.newTask.title },
             on: {
               input: function ($event) {
@@ -2681,7 +2687,11 @@ var render = function () {
               },
             ],
             staticClass: "form-control",
-            attrs: { value: "1", placeholder: "Task Description", required: "" },
+            attrs: {
+              value: "1",
+              placeholder: "Task Description",
+              required: "",
+            },
             domProps: { value: _vm.newTask.description },
             on: {
               input: function ($event) {
@@ -20828,7 +20838,7 @@ const asap = typeof queueMicrotask !== 'undefined' ?
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"/js/app": 0,
+/******/ 			"/js/task": 0,
 /******/ 			"css/app": 0
 /******/ 		};
 /******/ 		
@@ -20879,7 +20889,7 @@ const asap = typeof queueMicrotask !== 'undefined' ?
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/task.js")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	

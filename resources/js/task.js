@@ -8,6 +8,15 @@ Vue.use(Vuex);
 // Configuración global de Axios
 axios.defaults.baseURL = 'http://127.0.0.1:8000'; // Cambia esto a tu URL base si es necesario
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+let config = {
+    headers: {
+         "Content-Type": "application/json",
+         "cache-control": "no-cache"
+         }
+     };
+
+axios.defaults.config = config;
 const app = new Vue({
     el: '#app',
     store, // Agrega el store a la instancia de Vue
