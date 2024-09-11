@@ -1,4 +1,4 @@
-**CREAR LA BD LARAVEL **
+** CREAR LA BD LARAVEL **
 ** Comandos **  
 1. composer install
 2. copy env.example ->  env
